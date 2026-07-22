@@ -21,11 +21,12 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',syste
 header{border-bottom:1px solid var(--line);background:var(--panel);padding:22px 24px 18px}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
 h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;letter-spacing:-0.5px;margin:0}
-.sub{color:var(--muted);font-size:14px;margin:4px 0 0}
+.sub{color:var(--muted);font-size:14px;margin:6px 0 0;max-width:70ch}
 main{padding:24px 0 60px}
-.grid{display:grid;grid-template-columns:340px 1fr;gap:22px;align-items:start}
+.grid{display:grid;grid-template-columns:1fr 340px;gap:22px;align-items:start}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:22px}
 .card h2{font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0 0 14px}
+.hint{font-size:12.5px;color:var(--muted);margin:-8px 0 14px}
 label{display:block;font-size:13px;color:var(--muted);margin:14px 0 4px}
 label:first-of-type{margin-top:0}
 .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
@@ -35,13 +36,13 @@ input[type=text],select{width:100%;padding:8px 10px;border:1px solid var(--line)
 select{font-family:'IBM Plex Mono',monospace}
 button{font-family:'Inter',sans-serif;font-size:13px;padding:9px 14px;border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:6px;cursor:pointer}
 button:hover{opacity:.85}
-.presets{display:flex;flex-wrap:wrap;gap:6px}
+.presets{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
 .presets button{border:1px solid var(--line);background:#fff;color:var(--ink);padding:6px 11px;font-size:12px;border-radius:20px}
 .presets button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
 .kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
 .kpi .k{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
-.kpi .v{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:500;margin-top:6px}
+.kpi .v{font-family:'IBM Plex Mono',monospace;font-size:21px;font-weight:500;margin-top:6px}
 .kpi .n{font-size:11px;color:var(--muted);margin-top:2px}
 .good{color:var(--good)}
 .bad{color:var(--bad)}
@@ -51,19 +52,24 @@ button:hover{opacity:.85}
 .belabel{position:absolute;top:38px;font-size:11px;color:var(--bad);transform:translateX(-50%);white-space:nowrap}
 .dialwrap{padding-bottom:22px}
 .verdict{font-family:'Space Grotesk',sans-serif;font-size:15px;margin-top:26px;padding-top:14px;border-top:1px solid var(--line)}
-#map{height:280px;border-radius:8px;border:1px solid var(--line)}
-#chart{width:100%;max-height:280px}
+#map{height:300px;border-radius:8px;border:1px solid var(--line)}
+#chart{width:100%;max-height:260px}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line)}
 th{font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);font-weight:500}
 td.num{font-family:'IBM Plex Mono',monospace;text-align:right}
 .del{background:none;border:none;color:var(--bad);cursor:pointer;font-size:12px;padding:2px}
-.fx{font-size:12px;color:var(--muted);margin-top:8px;font-family:'IBM Plex Mono',monospace}
-.place{margin-top:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.placename{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:500}
+.fx{font-size:12px;color:var(--muted);margin-top:10px;font-family:'IBM Plex Mono',monospace}
+.place{margin-top:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.placename{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:500}
 .tag{font-size:11px;letter-spacing:.6px;text-transform:uppercase;background:#e2e8e7;color:var(--muted);padding:3px 9px;border-radius:20px}
+.counts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.count{background:var(--paper);border-radius:8px;padding:10px 12px}
+.count .c{font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:500}
+.count .l{font-size:10.5px;color:var(--muted);letter-spacing:.4px;text-transform:uppercase;line-height:1.4}
+.readout{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
 footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.counts{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -71,7 +77,7 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
 <header>
   <div class="wrap">
     <h1>Hotel Feasibility Studio</h1>
-    <p class="sub">Pick a site, set your assumptions, and see whether the hotel pays for itself.</p>
+    <p class="sub">Click anywhere on the map. The app reads that country's economy and what is built around the pin, fills in the starting numbers, and tells you whether a hotel there would pay for itself.</p>
   </div>
 </header>
 
@@ -79,64 +85,33 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
 <div class="grid">
 
   <div>
-    <div class="card">
-      <h2>Market preset</h2>
-      <div class="presets" id="presets"></div>
-      <label for="currency">Show results in</label>
-      <select id="currency">
-        <option value="USD">USD — US dollar</option>
-        <option value="UZS">UZS — Uzbek sum</option>
-        <option value="EUR">EUR — Euro</option>
-        <option value="AED">AED — UAE dirham</option>
-        <option value="TRY">TRY — Turkish lira</option>
-      </select>
-      <p class="fx" id="fx">Loading live exchange rates…</p>
-    </div>
-
-    <div class="card">
-      <h2>The build</h2>
-      <div class="row"><label for="rooms">Number of rooms</label><span class="val" id="v_rooms"></span></div>
-      <input type="range" id="rooms" min="5" max="300" step="1" value="40">
-
-      <div class="row"><label for="area">Built area per room, m²</label><span class="val" id="v_area"></span></div>
-      <input type="range" id="area" min="25" max="90" step="1" value="45">
-
-      <div class="row"><label for="cost">Construction cost, $ per m²</label><span class="val" id="v_cost"></span></div>
-      <input type="range" id="cost" min="200" max="3500" step="50" value="700">
-
-      <div class="row"><label for="ffe">Furniture and fit-out, $ per room</label><span class="val" id="v_ffe"></span></div>
-      <input type="range" id="ffe" min="1000" max="40000" step="500" value="8000">
-    </div>
-
-    <div class="card">
-      <h2>The operation</h2>
-      <div class="row"><label for="adr">Average room rate, $ per night</label><span class="val" id="v_adr"></span></div>
-      <input type="range" id="adr" min="10" max="500" step="5" value="60">
-
-      <div class="row"><label for="occ">Expected occupancy</label><span class="val" id="v_occ"></span></div>
-      <input type="range" id="occ" min="10" max="95" step="1" value="55">
-
-      <div class="row"><label for="varc">Cost per occupied room, $</label><span class="val" id="v_varc"></span></div>
-      <input type="range" id="varc" min="2" max="80" step="1" value="12">
-
-      <div class="row"><label for="fixed">Fixed costs, $ per year</label><span class="val" id="v_fixed"></span></div>
-      <input type="range" id="fixed" min="10000" max="3000000" step="10000" value="180000">
-
-      <div class="row"><label for="rate">Discount rate</label><span class="val" id="v_rate"></span></div>
-      <input type="range" id="rate" min="2" max="30" step="1" value="12">
-    </div>
-  </div>
-
-  <div>
     <div class="kpis">
-      <div class="kpi"><div class="k">Total investment</div><div class="v" id="k_capex">—</div><div class="n" id="k_capex_alt"></div></div>
-      <div class="kpi"><div class="k">Profit per year</div><div class="v" id="k_profit">—</div><div class="n">revenue minus all costs</div></div>
+      <div class="kpi"><div class="k">Total investment</div><div class="v" id="k_capex">—</div><div class="n" id="k_capex_alt">construction plus fit-out</div></div>
+      <div class="kpi"><div class="k">Profit per year</div><div class="v" id="k_profit">—</div><div class="n">after all operating costs</div></div>
       <div class="kpi"><div class="k">Payback</div><div class="v" id="k_payback">—</div><div class="n">years to earn it back</div></div>
       <div class="kpi"><div class="k">RevPAR</div><div class="v" id="k_revpar">—</div><div class="n">revenue per available room</div></div>
     </div>
 
+    <div class="card">
+      <h2>Step 1 — pick a site</h2>
+      <div class="presets" id="presets"></div>
+      <div id="map"></div>
+      <div class="place">
+        <span class="placename" id="placename">Tashkent, Uzbekistan</span>
+        <span class="tag" id="placetag">UZS</span>
+      </div>
+      <div class="counts">
+        <div class="count"><div class="c" id="c_gdp">—</div><div class="l">GDP per person</div></div>
+        <div class="count"><div class="c" id="c_hotels">—</div><div class="l">Hotels within 3 km</div></div>
+        <div class="count"><div class="c" id="c_attr">—</div><div class="l">Attractions</div></div>
+        <div class="count"><div class="c" id="c_food">—</div><div class="l">Places to eat</div></div>
+      </div>
+      <p class="readout" id="readout">Reading this location...</p>
+    </div>
+
     <div class="card dialwrap">
-      <h2>Break-even occupancy</h2>
+      <h2>Step 3 — the verdict</h2>
+      <p class="hint">The bar is your occupancy. The red line is the occupancy you need just to cover costs.</p>
       <div class="track">
         <div class="fill" id="d_fill"></div>
         <div class="be" id="d_be"></div>
@@ -146,44 +121,81 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
     </div>
 
     <div class="card">
-      <h2>Cumulative cash flow, 15 years</h2>
+      <h2>Cash in your pocket over 15 years</h2>
+      <p class="hint">Starts negative because you paid for the building. The year it crosses zero is your payback.</p>
       <canvas id="chart"></canvas>
     </div>
 
     <div class="card">
-      <h2>Site</h2>
-      <div id="map"></div>
-      <div class="place">
-        <span class="placename" id="placename">Tashkent, Uzbekistan</span>
-        <span class="tag" id="placetag">UZS</span>
-      </div>
-      <p class="fx" id="coords">Click anywhere on the map to move the site.</p>
-    </div>
-
-    <div class="card">
-      <h2>Saved scenarios</h2>
+      <h2>Compare sites</h2>
       <div style="display:flex;gap:8px;margin-bottom:14px">
-        <input type="text" id="scname" placeholder="Scenario name" style="flex:1">
+        <input type="text" id="scname" placeholder="Name this scenario" style="flex:1">
         <button id="save">Save scenario</button>
       </div>
       <table id="sctable"></table>
     </div>
   </div>
 
+  <div>
+    <div class="card">
+      <h2>Step 2 — adjust the plan</h2>
+      <p class="hint">Every number below was filled in from the site you picked. Change anything you disagree with.</p>
+
+      <div class="row"><label for="rooms">Number of rooms</label><span class="val" id="v_rooms"></span></div>
+      <input type="range" id="rooms" min="5" max="300" step="1" value="40">
+
+      <div class="row"><label for="area">Built area per room, m2</label><span class="val" id="v_area"></span></div>
+      <input type="range" id="area" min="25" max="90" step="1" value="45">
+
+      <div class="row"><label for="cost">Construction cost, $ per m2</label><span class="val" id="v_cost"></span></div>
+      <input type="range" id="cost" min="200" max="3500" step="50" value="700">
+
+      <div class="row"><label for="ffe">Furniture per room, $</label><span class="val" id="v_ffe"></span></div>
+      <input type="range" id="ffe" min="1000" max="40000" step="500" value="8000">
+
+      <div class="row"><label for="adr">Room rate, $ per night</label><span class="val" id="v_adr"></span></div>
+      <input type="range" id="adr" min="10" max="500" step="5" value="60">
+
+      <div class="row"><label for="occ">Occupancy</label><span class="val" id="v_occ"></span></div>
+      <input type="range" id="occ" min="10" max="95" step="1" value="55">
+
+      <div class="row"><label for="varc">Cost per guest night, $</label><span class="val" id="v_varc"></span></div>
+      <input type="range" id="varc" min="2" max="120" step="1" value="12">
+
+      <div class="row"><label for="fixed">Fixed costs, $ per year</label><span class="val" id="v_fixed"></span></div>
+      <input type="range" id="fixed" min="10000" max="4000000" step="10000" value="180000">
+
+      <div class="row"><label for="rate">Discount rate</label><span class="val" id="v_rate"></span></div>
+      <input type="range" id="rate" min="2" max="30" step="1" value="12">
+    </div>
+
+    <div class="card">
+      <h2>Currency</h2>
+      <select id="currency">
+        <option value="USD">USD — US dollar</option>
+        <option value="UZS">UZS — Uzbek sum</option>
+        <option value="EUR">EUR — Euro</option>
+        <option value="AED">AED — UAE dirham</option>
+        <option value="TRY">TRY — Turkish lira</option>
+      </select>
+      <p class="fx" id="fx">Loading live exchange rates...</p>
+    </div>
+  </div>
+
 </div>
 </main>
 
-<footer>Built for OIM 3690 · the numbers are your own assumptions, not market data</footer>
+<footer>Built for OIM 3690 · income data from the World Bank · site data from OpenStreetMap · rates from open.er-api.com</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 var PRESETS = {
-  "Tashkent":  {lat:41.311, lng:69.240, rooms:40,  area:45, cost:700,  ffe:8000,  adr:60,  occ:55, varc:12, fixed:180000},
-  "Samarkand": {lat:39.654, lng:66.976, rooms:24,  area:40, cost:650,  ffe:7000,  adr:55,  occ:50, varc:11, fixed:110000},
-  "Dubai":     {lat:25.204, lng:55.270, rooms:120, area:60, cost:2400, ffe:32000, adr:190, occ:74, varc:45, fixed:2200000},
-  "Istanbul":  {lat:41.008, lng:28.978, rooms:70,  area:42, cost:1100, ffe:14000, adr:95,  occ:65, varc:24, fixed:700000},
-  "Bali":      {lat:-8.409, lng:115.189,rooms:30,  area:55, cost:900,  ffe:12000, adr:110, occ:62, varc:26, fixed:260000}
+  "Tashkent":  {lat:41.311, lng:69.240},
+  "Samarkand": {lat:39.654, lng:66.976},
+  "Dubai":     {lat:25.204, lng:55.270},
+  "Istanbul":  {lat:41.008, lng:28.978},
+  "Bali":      {lat:-8.409, lng:115.189}
 };
 var CURRENCY_BY_COUNTRY = {
   UZ:"UZS", KZ:"KZT", KG:"KGS", TJ:"TJS", RU:"RUB", TR:"TRY", AE:"AED", SA:"SAR", QA:"QAR",
@@ -193,23 +205,30 @@ var CURRENCY_BY_COUNTRY = {
   GE:"GEL", AZ:"AZN", AM:"AMD", IL:"ILS", DE:"EUR", FR:"EUR", ES:"EUR", IT:"EUR", PT:"EUR",
   NL:"EUR", GR:"EUR", AT:"EUR", BE:"EUR", IE:"EUR", FI:"EUR"
 };
+var OVERPASS = [
+  "https://overpass-api.de/api/interpreter",
+  "https://overpass.kumi.systems/api/interpreter",
+  "https://overpass.osm.ch/api/interpreter"
+];
 var IDS = ["rooms","area","cost","ffe","adr","occ","varc","fixed","rate"];
-var rates = null, chart = null, map = null, marker = null;
-var activePreset = "Tashkent";
-var site = {lat:41.311, lng:69.240, name:"Tashkent, Uzbekistan", currency:"UZS"};
+var rates = null, chart = null, map = null, marker = null, circle = null;
+var token = 0, gdpCache = {};
+var site = {name:"Tashkent, Uzbekistan", currency:"UZS", gdp:null, hotels:null, attr:null, food:null, fixedPerRoom:4500};
+
+function clamp(x, lo, hi){ return Math.max(lo, Math.min(hi, x)); }
+function val(id){ return parseFloat(document.getElementById(id).value); }
+function setVal(id, v){ document.getElementById(id).value = v; }
 
 function money(n, cur){
   cur = cur || "USD";
   var v = n;
   if (rates && rates[cur]) v = n * rates[cur];
-  var digits = (Math.abs(v) >= 1000) ? 0 : 1;
-  try {
-    return new Intl.NumberFormat("en-US",{style:"currency",currency:cur,maximumFractionDigits:digits}).format(v);
-  } catch(e){
-    return Math.round(v).toLocaleString("en-US") + " " + cur;
-  }
+  var opts = {style:"currency", currency:cur, maximumFractionDigits:0};
+  if (Math.abs(v) >= 1000000){ opts.notation = "compact"; opts.maximumFractionDigits = 1; }
+  else if (Math.abs(v) < 100){ opts.maximumFractionDigits = 1; }
+  try { return new Intl.NumberFormat("en-US", opts).format(v); }
+  catch(e){ return Math.round(v).toLocaleString("en-US") + " " + cur; }
 }
-function val(id){ return parseFloat(document.getElementById(id).value); }
 
 function compute(){
   var rooms = val("rooms"), area = val("area"), cost = val("cost"), ffe = val("ffe");
@@ -218,8 +237,7 @@ function compute(){
   var capex = rooms * area * cost + rooms * ffe;
   var roomNights = rooms * 365 * occ;
   var revenue = roomNights * adr;
-  var variable = roomNights * varc;
-  var profit = revenue - variable - fixed;
+  var profit = revenue - roomNights * varc - fixed;
   var revpar = adr * occ;
   var contribution = rooms * 365 * (adr - varc);
   var beOcc = contribution > 0 ? (fixed / contribution) * 100 : 999;
@@ -230,8 +248,7 @@ function compute(){
     npv += profit / Math.pow(1 + rate, y);
     cum.push(cum[y-1] + profit);
   }
-  return {capex:capex, revenue:revenue, profit:profit, revpar:revpar, beOcc:beOcc,
-          payback:payback, npv:npv, cum:cum, occ:occ*100};
+  return {capex:capex, profit:profit, revpar:revpar, beOcc:beOcc, payback:payback, npv:npv, cum:cum, occ:occ*100};
 }
 
 function render(){
@@ -249,7 +266,7 @@ function render(){
   document.getElementById("v_rate").textContent  = val("rate") + "%";
 
   document.getElementById("k_capex").textContent = money(r.capex, cur);
-  document.getElementById("k_capex_alt").textContent = cur === "USD" ? "construction plus fit-out" : money(r.capex,"USD") + " in USD";
+  document.getElementById("k_capex_alt").textContent = cur === "USD" ? "construction plus fit-out" : money(r.capex, "USD") + " in USD";
 
   var pEl = document.getElementById("k_profit");
   pEl.textContent = money(r.profit, cur);
@@ -263,16 +280,17 @@ function render(){
   document.getElementById("d_be").style.left = bePct + "%";
   var lab = document.getElementById("d_label");
   lab.style.left = bePct + "%";
-  lab.textContent = "break-even " + (r.beOcc > 100 ? ">100" : r.beOcc.toFixed(0)) + "%";
+  lab.textContent = "break-even " + (r.beOcc > 100 ? ">100" : Math.round(r.beOcc)) + "%";
 
   var v = document.getElementById("verdict");
   if (r.beOcc > 100){
-    v.innerHTML = "<span class='bad'>The room rate is too low to ever cover fixed costs.</span> Even a full hotel loses money here.";
+    v.innerHTML = "<span class='bad'>Impossible at this rate.</span> Even a completely full hotel would not cover the fixed costs.";
   } else if (r.profit <= 0){
-    v.innerHTML = "<span class='bad'>Below break-even.</span> You need " + r.beOcc.toFixed(0) + "% occupancy and you assumed " + r.occ.toFixed(0) + "%.";
+    v.innerHTML = "<span class='bad'>This site loses money.</span> It needs " + Math.round(r.beOcc) + "% occupancy and only supports " + Math.round(r.occ) + "%.";
   } else {
-    v.innerHTML = "<span class='good'>Above break-even by " + (r.occ - r.beOcc).toFixed(0) + " points.</span> " +
-      "Net present value over 15 years is " + money(r.npv, cur) + " at a " + val("rate") + "% discount rate.";
+    v.innerHTML = "<span class='good'>This site works.</span> It runs " + Math.round(r.occ - r.beOcc) +
+      " points above break-even, pays itself back in " + r.payback.toFixed(1) +
+      " years, and is worth " + money(r.npv, cur) + " in today's money over 15 years.";
   }
 
   var labels = [], i;
@@ -287,25 +305,23 @@ function render(){
   } else {
     chart = new Chart(document.getElementById("chart"), {
       type:"line",
-      data:{labels:labels, datasets:[{
-        label:"Cumulative cash", data:data,
-        borderColor:"#12212b", backgroundColor:"rgba(15,110,86,.10)",
-        fill:true, tension:.25, pointRadius:2
-      }]},
-      options:{
-        responsive:true, maintainAspectRatio:false,
-        plugins:{legend:{display:false}},
-        scales:{y:{grid:{color:"#dde4e3"},ticks:{callback:function(v){return (v/1000000).toFixed(1)+"M";}}},
-                x:{grid:{display:false}}}
-      }
+      data:{labels:labels, datasets:[{label:"Cumulative cash", data:data,
+        borderColor:"#12212b", backgroundColor:"rgba(15,110,86,.10)", fill:true, tension:.25, pointRadius:2}]},
+      options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+        scales:{y:{grid:{color:"#dde4e3"}, ticks:{callback:function(v){
+          var a = Math.abs(v);
+          if (a >= 1e9) return (v/1e9).toFixed(1) + "B";
+          if (a >= 1e6) return (v/1e6).toFixed(1) + "M";
+          if (a >= 1e3) return (v/1e3).toFixed(0) + "K";
+          return v;
+        }}}, x:{grid:{display:false}}}}
     });
   }
 }
 
 function setCurrency(code){
-  var sel = document.getElementById("currency");
+  var sel = document.getElementById("currency"), found = false, i;
   if (!code) return;
-  var found = false, i;
   for (i = 0; i < sel.options.length; i++){ if (sel.options[i].value === code) found = true; }
   if (!found){
     var o = document.createElement("option");
@@ -315,77 +331,189 @@ function setCurrency(code){
   sel.value = code;
 }
 
-function lookupPlace(lat, lng){
-  document.getElementById("placename").textContent = "Looking up location...";
-  document.getElementById("placetag").textContent = "";
-  fetch("https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=" + lat + "&longitude=" + lng + "&localityLanguage=en")
-    .then(function(res){ return res.json(); })
-    .then(function(d){
-      var city = d.city || d.locality || d.principalSubdivision || "";
-      var country = d.countryName || "Open water";
-      site.name = city ? (city + ", " + country) : country;
-      var code = CURRENCY_BY_COUNTRY[d.countryCode];
-      site.currency = code || "USD";
-      document.getElementById("placename").textContent = site.name;
-      document.getElementById("placetag").textContent = code ? site.currency : "USD, no local currency found";
-      setCurrency(site.currency);
-      render();
-      drawTable();
-    })
-    .catch(function(){
-      site.name = lat.toFixed(2) + ", " + lng.toFixed(2);
-      document.getElementById("placename").textContent = site.name;
-      document.getElementById("placetag").textContent = "location lookup unavailable";
-    });
-}
+function applyEconomy(gdp, isUrban){
+  var scale = Math.pow(gdp / 2500, 0.35);
+  var cost = clamp(Math.round(650 * scale / 50) * 50, 200, 3500);
+  var ffe  = clamp(Math.round(8000 * scale / 500) * 500, 1000, 40000);
+  var adr  = clamp(Math.round(60 * Math.pow(gdp / 2500, 0.30) / 5) * 5, 10, 500);
+  var varc = clamp(Math.round(adr * 0.20), 2, 120);
+  site.fixedPerRoom = Math.round(4500 * scale);
 
-function setMarker(lat, lng){
-  site.lat = lat; site.lng = lng;
-  if (marker) marker.setLatLng([lat, lng]);
-  else marker = L.marker([lat, lng]).addTo(map);
-  document.getElementById("coords").textContent =
-    "Coordinates " + lat.toFixed(4) + ", " + lng.toFixed(4) + " - click the map to move the site.";
-  lookupPlace(lat, lng);
-}
+  if (!isUrban){ adr = clamp(Math.round(adr * 0.75 / 5) * 5, 10, 500); }
 
-function applyPreset(name){
-  var p = PRESETS[name];
-  activePreset = name;
-  IDS.forEach(function(id){ if (p[id] !== undefined) document.getElementById(id).value = p[id]; });
-  if (map) { map.setView([p.lat, p.lng], 11); setMarker(p.lat, p.lng); }
-  document.querySelectorAll("#presets button").forEach(function(b){
-    b.className = (b.textContent === name) ? "on" : "";
-  });
+  setVal("cost", cost);
+  setVal("ffe", ffe);
+  setVal("adr", adr);
+  setVal("varc", varc);
+  setVal("fixed", clamp(Math.round(site.fixedPerRoom * val("rooms") / 10000) * 10000, 10000, 4000000));
   render();
 }
 
+function applyDemand(hotels, attr, food){
+  var demand = attr + 0.15 * food;
+  var occ = Math.round(clamp(38 + 7 * Math.log(1 + demand) - 4.5 * Math.log(1 + hotels), 22, 88));
+  setVal("occ", occ);
+  render();
+  return occ;
+}
+
+function story(){
+  var parts = [];
+  if (site.gdp){
+    parts.push("This country produces " + Math.round(site.gdp).toLocaleString("en-US") +
+      " dollars per person a year, so building costs and room rates are scaled to that income level.");
+  }
+  if (site.hotels !== null){
+    if (site.attr + site.food === 0 && site.hotels === 0){
+      parts.push("Nothing is mapped within 3 km of this pin, so the model treats it as an empty location and drops occupancy to " + val("occ") + "%.");
+    } else if (site.hotels > site.attr + 1){
+      parts.push("There are already " + site.hotels + " hotels here against " + site.attr +
+        " attractions, so competition pushes occupancy down to " + val("occ") + "%.");
+    } else {
+      parts.push("There are " + site.attr + " attractions and " + site.food +
+        " places to eat nearby against " + site.hotels + " hotels, which supports " + val("occ") + "% occupancy.");
+    }
+  } else {
+    parts.push("The OpenStreetMap survey is still loading, so occupancy is unchanged for now.");
+  }
+  parts.push("Every number is a starting point — override anything with the sliders.");
+  document.getElementById("readout").textContent = parts.join(" ");
+}
+
+function lookupPlace(lat, lng, t){
+  fetch("https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=" + lat + "&longitude=" + lng + "&localityLanguage=en")
+    .then(function(res){ return res.json(); })
+    .then(function(d){
+      if (t !== token) return;
+      var city = d.city || d.locality || "";
+      var country = d.countryName || "Open water";
+      site.name = city ? (city + ", " + country) : country;
+      document.getElementById("placename").textContent = site.name;
+      var code = CURRENCY_BY_COUNTRY[d.countryCode];
+      site.currency = code || "USD";
+      document.getElementById("placetag").textContent = site.currency;
+      setCurrency(site.currency);
+      lookupGDP(d.countryCode || "", !!city, t);
+      drawTable();
+    })
+    .catch(function(){
+      if (t !== token) return;
+      document.getElementById("placename").textContent = lat.toFixed(3) + ", " + lng.toFixed(3);
+      applyEconomy(6000, true);
+      story();
+    });
+}
+
+function lookupGDP(code, isUrban, t){
+  if (!code){ applyEconomy(6000, isUrban); story(); return; }
+  if (gdpCache[code]){
+    site.gdp = gdpCache[code];
+    document.getElementById("c_gdp").textContent = "$" + Math.round(site.gdp).toLocaleString("en-US");
+    applyEconomy(site.gdp, isUrban); story(); return;
+  }
+  document.getElementById("c_gdp").textContent = "...";
+  fetch("https://api.worldbank.org/v2/country/" + code + "/indicator/NY.GDP.PCAP.CD?format=json&mrnev=1")
+    .then(function(res){ return res.json(); })
+    .then(function(d){
+      if (t !== token) return;
+      var gdp = (d && d[1] && d[1][0] && d[1][0].value) ? d[1][0].value : 6000;
+      gdpCache[code] = gdp;
+      site.gdp = gdp;
+      document.getElementById("c_gdp").textContent = "$" + Math.round(gdp).toLocaleString("en-US");
+      applyEconomy(gdp, isUrban);
+      story();
+    })
+    .catch(function(){
+      if (t !== token) return;
+      site.gdp = 6000;
+      document.getElementById("c_gdp").textContent = "$6,000 est.";
+      applyEconomy(6000, isUrban);
+      story();
+    });
+}
+
+function surveySite(lat, lng, t){
+  var q = "[out:json][timeout:20];(" +
+    'node["tourism"~"^(hotel|guest_house|hostel|motel|apartment)$"](around:3000,' + lat + ',' + lng + ');' +
+    'node["tourism"~"^(attraction|museum|viewpoint|artwork|gallery)$"](around:3000,' + lat + ',' + lng + ');' +
+    'node["amenity"~"^(restaurant|cafe|bar|fast_food)$"](around:3000,' + lat + ',' + lng + ');' +
+    ");out tags;";
+
+  ["c_hotels","c_attr","c_food"].forEach(function(id){ document.getElementById(id).textContent = "..."; });
+
+  function attempt(i){
+    if (t !== token) return;
+    if (i >= OVERPASS.length){
+      ["c_hotels","c_attr","c_food"].forEach(function(id){ document.getElementById(id).textContent = "n/a"; });
+      site.hotels = null;
+      story();
+      return;
+    }
+    fetch(OVERPASS[i] + "?data=" + encodeURIComponent(q))
+      .then(function(res){ if (!res.ok) throw new Error("busy"); return res.json(); })
+      .then(function(d){
+        if (t !== token) return;
+        var hotels = 0, attr = 0, food = 0;
+        (d.elements || []).forEach(function(el){
+          var tags = el.tags || {};
+          if (tags.tourism && /^(hotel|guest_house|hostel|motel|apartment)$/.test(tags.tourism)) hotels++;
+          else if (tags.tourism) attr++;
+          else if (tags.amenity) food++;
+        });
+        site.hotels = hotels; site.attr = attr; site.food = food;
+        document.getElementById("c_hotels").textContent = hotels;
+        document.getElementById("c_attr").textContent = attr;
+        document.getElementById("c_food").textContent = food;
+        applyDemand(hotels, attr, food);
+        story();
+      })
+      .catch(function(){ attempt(i + 1); });
+  }
+  attempt(0);
+}
+
+function setSite(lat, lng){
+  token++;
+  var t = token;
+  site.hotels = null;
+  if (marker) marker.setLatLng([lat, lng]); else marker = L.marker([lat, lng]).addTo(map);
+  if (circle) circle.setLatLng([lat, lng]);
+  else circle = L.circle([lat, lng], {radius:3000, color:"#12212b", weight:1, fillColor:"#0f6e56", fillOpacity:.06}).addTo(map);
+  document.getElementById("placename").textContent = "Reading this location...";
+  document.getElementById("placetag").textContent = "";
+  document.getElementById("readout").textContent = "Reading this location...";
+  lookupPlace(lat, lng, t);
+  surveySite(lat, lng, t);
+}
+
 function scenarios(){
-  try { return JSON.parse(localStorage.getItem("hfs_scenarios") || "[]"); }
-  catch(e){ return []; }
+  try { return JSON.parse(localStorage.getItem("hfs_v2") || "[]"); } catch(e){ return []; }
 }
 function drawTable(){
   var list = scenarios(), cur = document.getElementById("currency").value;
   var t = document.getElementById("sctable");
   if (!list.length){
-    t.innerHTML = "<tr><td style='color:var(--muted);border:none;padding:4px 0'>No scenarios yet. Set your assumptions and save one to compare later.</td></tr>";
+    t.innerHTML = "<tr><td style='color:var(--muted);border:none;padding:4px 0'>Nothing saved yet. Pick a site, then save it here to compare against another one.</td></tr>";
     return;
   }
-  var html = "<tr><th>Scenario</th><th>Site</th><th>Rooms</th><th style='text-align:right'>Investment</th><th style='text-align:right'>Profit / yr</th><th style='text-align:right'>Payback</th><th></th></tr>";
+  var html = "<tr><th>Name</th><th>Site</th><th style='text-align:right'>Rooms</th><th style='text-align:right'>Occ.</th><th style='text-align:right'>Rate</th><th style='text-align:right'>Investment</th><th style='text-align:right'>Profit / yr</th><th style='text-align:right'>Payback</th><th></th></tr>";
   list.forEach(function(s, i){
     html += "<tr><td>" + s.name + "</td>" +
       "<td style='color:var(--muted)'>" + (s.place || "-") + "</td>" +
-      "<td>" + s.rooms + "</td>" +
+      "<td class='num'>" + s.rooms + "</td>" +
+      "<td class='num'>" + s.occ + "%</td>" +
+      "<td class='num'>$" + s.adr + "</td>" +
       "<td class='num'>" + money(s.capex, cur) + "</td>" +
-      "<td class='num " + (s.profit>=0?"good":"bad") + "'>" + money(s.profit, cur) + "</td>" +
+      "<td class='num " + (s.profit >= 0 ? "good" : "bad") + "'>" + money(s.profit, cur) + "</td>" +
       "<td class='num'>" + (s.payback ? s.payback.toFixed(1) + " yrs" : "never") + "</td>" +
       "<td style='text-align:right'><button class='del' data-i='" + i + "'>remove</button></td></tr>";
   });
   t.innerHTML = html;
   t.querySelectorAll(".del").forEach(function(b){
     b.onclick = function(){
-      var list = scenarios();
-      list.splice(parseInt(b.getAttribute("data-i")), 1);
-      localStorage.setItem("hfs_scenarios", JSON.stringify(list));
+      var l = scenarios();
+      l.splice(parseInt(b.getAttribute("data-i")), 1);
+      localStorage.setItem("hfs_v2", JSON.stringify(l));
       drawTable();
     };
   });
@@ -396,43 +524,52 @@ document.addEventListener("DOMContentLoaded", function(){
   Object.keys(PRESETS).forEach(function(name){
     var b = document.createElement("button");
     b.textContent = name;
-    b.onclick = function(){ applyPreset(name); };
+    b.onclick = function(){
+      document.querySelectorAll("#presets button").forEach(function(x){ x.className = ""; });
+      b.className = "on";
+      map.setView([PRESETS[name].lat, PRESETS[name].lng], 13);
+      setSite(PRESETS[name].lat, PRESETS[name].lng);
+    };
     pc.appendChild(b);
   });
 
   IDS.forEach(function(id){ document.getElementById(id).addEventListener("input", render); });
+  document.getElementById("rooms").addEventListener("input", function(){
+    setVal("fixed", clamp(Math.round(site.fixedPerRoom * val("rooms") / 10000) * 10000, 10000, 4000000));
+    render();
+  });
   document.getElementById("currency").addEventListener("change", function(){ render(); drawTable(); });
 
-  map = L.map("map").setView([41.311, 69.240], 11);
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
-    attribution:"OpenStreetMap contributors", maxZoom:18
-  }).addTo(map);
-  map.on("click", function(e){ setMarker(e.latlng.lat, e.latlng.lng); });
+  map = L.map("map").setView([41.311, 69.240], 13);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {attribution:"OpenStreetMap contributors", maxZoom:18}).addTo(map);
+  map.on("click", function(e){
+    document.querySelectorAll("#presets button").forEach(function(x){ x.className = ""; });
+    setSite(e.latlng.lat, e.latlng.lng);
+  });
 
   document.getElementById("save").onclick = function(){
-    var name = document.getElementById("scname").value.trim() || (val("rooms") + " rooms");
+    var name = document.getElementById("scname").value.trim() || site.name;
     var r = compute();
     var list = scenarios();
-    list.push({name:name, place:site.name, rooms:val("rooms"), capex:r.capex, profit:r.profit, payback:r.payback});
-    localStorage.setItem("hfs_scenarios", JSON.stringify(list));
+    list.push({name:name, place:site.name, rooms:val("rooms"), occ:val("occ"), adr:val("adr"),
+               capex:r.capex, profit:r.profit, payback:r.payback});
+    localStorage.setItem("hfs_v2", JSON.stringify(list));
     document.getElementById("scname").value = "";
     drawTable();
   };
 
-  applyPreset("Tashkent");
+  document.querySelector("#presets button").className = "on";
+  setSite(41.311, 69.240);
   drawTable();
 
   fetch("https://open.er-api.com/v6/latest/USD")
     .then(function(res){ return res.json(); })
     .then(function(d){
       rates = d.rates;
-      document.getElementById("fx").textContent =
-        "Live rates loaded - $1 = " + Math.round(rates.UZS).toLocaleString("en-US") + " UZS";
+      document.getElementById("fx").textContent = "Live rate: $1 = " + Math.round(rates.UZS).toLocaleString("en-US") + " UZS";
       render(); drawTable();
     })
-    .catch(function(){
-      document.getElementById("fx").textContent = "Live rates unavailable right now - showing US dollars.";
-    });
+    .catch(function(){ document.getElementById("fx").textContent = "Live rates unavailable - showing US dollars."; });
 });
 </script>
 </body>
