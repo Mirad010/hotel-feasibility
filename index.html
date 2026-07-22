@@ -15,70 +15,28 @@
   --muted:#5f7175;
   --good:#0f6e56;
   --bad:#a32d2d;
-  --brass:#b07d2b;
 }
 *{box-sizing:border-box}
-body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:'Inter',system-ui,sans-serif;
-  font-size:15px;
-  line-height:1.6;
-}
-header{
-  border-bottom:1px solid var(--line);
-  background:var(--panel);
-  padding:22px 24px 18px;
-}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:15px;line-height:1.6}
+header{border-bottom:1px solid var(--line);background:var(--panel);padding:22px 24px 18px}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-h1{
-  font-family:'Space Grotesk',sans-serif;
-  font-weight:700;
-  font-size:26px;
-  letter-spacing:-0.5px;
-  margin:0;
-}
+h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;letter-spacing:-0.5px;margin:0}
 .sub{color:var(--muted);font-size:14px;margin:4px 0 0}
 main{padding:24px 0 60px}
 .grid{display:grid;grid-template-columns:340px 1fr;gap:22px;align-items:start}
-.card{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:18px;
-  margin-bottom:22px;
-}
-.card h2{
-  font-family:'Space Grotesk',sans-serif;
-  font-size:12px;
-  letter-spacing:1.4px;
-  text-transform:uppercase;
-  color:var(--muted);
-  font-weight:500;
-  margin:0 0 14px;
-}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:22px}
+.card h2{font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0 0 14px}
 label{display:block;font-size:13px;color:var(--muted);margin:14px 0 4px}
 label:first-of-type{margin-top:0}
 .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .val{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;color:var(--ink)}
 input[type=range]{width:100%;accent-color:var(--ink);margin:2px 0 0}
-input[type=number],select{
-  width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:6px;
-  font-family:'IBM Plex Mono',monospace;font-size:14px;background:#fff;color:var(--ink);
-}
-button{
-  font-family:'Inter',sans-serif;font-size:13px;padding:9px 14px;
-  border:1px solid var(--ink);background:var(--ink);color:#fff;
-  border-radius:6px;cursor:pointer;
-}
-button.ghost{background:transparent;color:var(--ink)}
+input[type=text],select{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:6px;font-size:14px;background:#fff;color:var(--ink);font-family:'Inter',sans-serif}
+select{font-family:'IBM Plex Mono',monospace}
+button{font-family:'Inter',sans-serif;font-size:13px;padding:9px 14px;border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:6px;cursor:pointer}
 button:hover{opacity:.85}
 .presets{display:flex;flex-wrap:wrap;gap:6px}
-.presets button{
-  border:1px solid var(--line);background:#fff;color:var(--ink);
-  padding:6px 11px;font-size:12px;border-radius:20px;
-}
+.presets button{border:1px solid var(--line);background:#fff;color:var(--ink);padding:6px 11px;font-size:12px;border-radius:20px}
 .presets button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
 .kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
@@ -87,14 +45,13 @@ button:hover{opacity:.85}
 .kpi .n{font-size:11px;color:var(--muted);margin-top:2px}
 .good{color:var(--good)}
 .bad{color:var(--bad)}
-.dial{margin-top:6px}
 .track{position:relative;height:34px;background:#e2e8e7;border-radius:6px;overflow:hidden}
 .fill{position:absolute;left:0;top:0;bottom:0;background:#cfe0da}
 .be{position:absolute;top:0;bottom:0;width:2px;background:var(--bad)}
 .belabel{position:absolute;top:38px;font-size:11px;color:var(--bad);transform:translateX(-50%);white-space:nowrap}
 .dialwrap{padding-bottom:22px}
 .verdict{font-family:'Space Grotesk',sans-serif;font-size:15px;margin-top:26px;padding-top:14px;border-top:1px solid var(--line)}
-#map{height:260px;border-radius:8px;border:1px solid var(--line)}
+#map{height:280px;border-radius:8px;border:1px solid var(--line)}
 #chart{width:100%;max-height:280px}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line)}
@@ -102,6 +59,9 @@ th{font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted
 td.num{font-family:'IBM Plex Mono',monospace;text-align:right}
 .del{background:none;border:none;color:var(--bad);cursor:pointer;font-size:12px;padding:2px}
 .fx{font-size:12px;color:var(--muted);margin-top:8px;font-family:'IBM Plex Mono',monospace}
+.place{margin-top:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.placename{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:500}
+.tag{font-size:11px;letter-spacing:.6px;text-transform:uppercase;background:#e2e8e7;color:var(--muted);padding:3px 9px;border-radius:20px}
 footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
 @media(max-width:900px){.grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}}
 </style>
@@ -111,7 +71,7 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
 <header>
   <div class="wrap">
     <h1>Hotel Feasibility Studio</h1>
-    <p class="sub">Move the assumptions and see whether a hotel project pays for itself.</p>
+    <p class="sub">Pick a site, set your assumptions, and see whether the hotel pays for itself.</p>
   </div>
 </header>
 
@@ -177,13 +137,11 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
 
     <div class="card dialwrap">
       <h2>Break-even occupancy</h2>
-      <div class="dial">
-        <div class="track">
-          <div class="fill" id="d_fill"></div>
-          <div class="be" id="d_be"></div>
-        </div>
-        <div style="position:relative"><span class="belabel" id="d_label"></span></div>
+      <div class="track">
+        <div class="fill" id="d_fill"></div>
+        <div class="be" id="d_be"></div>
       </div>
+      <div style="position:relative"><span class="belabel" id="d_label"></span></div>
       <p class="verdict" id="verdict"></p>
     </div>
 
@@ -193,15 +151,19 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
     </div>
 
     <div class="card">
-      <h2>Where you would build</h2>
+      <h2>Site</h2>
       <div id="map"></div>
-      <p class="fx" id="coords"></p>
+      <div class="place">
+        <span class="placename" id="placename">Tashkent, Uzbekistan</span>
+        <span class="tag" id="placetag">UZS</span>
+      </div>
+      <p class="fx" id="coords">Click anywhere on the map to move the site.</p>
     </div>
 
     <div class="card">
       <h2>Saved scenarios</h2>
       <div style="display:flex;gap:8px;margin-bottom:14px">
-        <input type="text" id="scname" placeholder="Scenario name" style="flex:1;padding:8px 10px;border:1px solid var(--line);border-radius:6px;font-family:'Inter',sans-serif;font-size:14px">
+        <input type="text" id="scname" placeholder="Scenario name" style="flex:1">
         <button id="save">Save scenario</button>
       </div>
       <table id="sctable"></table>
@@ -211,7 +173,7 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
 </div>
 </main>
 
-<footer>Built for OIM 3690 · numbers are your own assumptions, not market data</footer>
+<footer>Built for OIM 3690 · the numbers are your own assumptions, not market data</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -223,14 +185,24 @@ var PRESETS = {
   "Istanbul":  {lat:41.008, lng:28.978, rooms:70,  area:42, cost:1100, ffe:14000, adr:95,  occ:65, varc:24, fixed:700000},
   "Bali":      {lat:-8.409, lng:115.189,rooms:30,  area:55, cost:900,  ffe:12000, adr:110, occ:62, varc:26, fixed:260000}
 };
+var CURRENCY_BY_COUNTRY = {
+  UZ:"UZS", KZ:"KZT", KG:"KGS", TJ:"TJS", RU:"RUB", TR:"TRY", AE:"AED", SA:"SAR", QA:"QAR",
+  US:"USD", GB:"GBP", CA:"CAD", AU:"AUD", JP:"JPY", CN:"CNY", KR:"KRW", IN:"INR", ID:"IDR",
+  TH:"THB", MY:"MYR", SG:"SGD", VN:"VND", PH:"PHP", EG:"EGP", MA:"MAD", ZA:"ZAR", BR:"BRL",
+  MX:"MXN", AR:"ARS", CH:"CHF", SE:"SEK", NO:"NOK", DK:"DKK", PL:"PLN", CZ:"CZK", UA:"UAH",
+  GE:"GEL", AZ:"AZN", AM:"AMD", IL:"ILS", DE:"EUR", FR:"EUR", ES:"EUR", IT:"EUR", PT:"EUR",
+  NL:"EUR", GR:"EUR", AT:"EUR", BE:"EUR", IE:"EUR", FI:"EUR"
+};
 var IDS = ["rooms","area","cost","ffe","adr","occ","varc","fixed","rate"];
-var rates = null, chart = null, map = null, marker = null, activePreset = "Tashkent";
+var rates = null, chart = null, map = null, marker = null;
+var activePreset = "Tashkent";
+var site = {lat:41.311, lng:69.240, name:"Tashkent, Uzbekistan", currency:"UZS"};
 
 function money(n, cur){
   cur = cur || "USD";
   var v = n;
   if (rates && rates[cur]) v = n * rates[cur];
-  var digits = (cur === "UZS" || Math.abs(v) >= 1000) ? 0 : 1;
+  var digits = (Math.abs(v) >= 1000) ? 0 : 1;
   try {
     return new Intl.NumberFormat("en-US",{style:"currency",currency:cur,maximumFractionDigits:digits}).format(v);
   } catch(e){
@@ -267,7 +239,7 @@ function render(){
   var r = compute();
 
   document.getElementById("v_rooms").textContent = val("rooms") + " rooms";
-  document.getElementById("v_area").textContent  = val("area") + " m²";
+  document.getElementById("v_area").textContent  = val("area") + " m2";
   document.getElementById("v_cost").textContent  = "$" + val("cost").toLocaleString("en-US");
   document.getElementById("v_ffe").textContent   = "$" + val("ffe").toLocaleString("en-US");
   document.getElementById("v_adr").textContent   = "$" + val("adr");
@@ -295,7 +267,7 @@ function render(){
 
   var v = document.getElementById("verdict");
   if (r.beOcc > 100){
-    v.innerHTML = "<span class='bad'>The rate is too low to ever cover fixed costs.</span> Even a full hotel loses money — raise the room rate or cut fixed costs.";
+    v.innerHTML = "<span class='bad'>The room rate is too low to ever cover fixed costs.</span> Even a full hotel loses money here.";
   } else if (r.profit <= 0){
     v.innerHTML = "<span class='bad'>Below break-even.</span> You need " + r.beOcc.toFixed(0) + "% occupancy and you assumed " + r.occ.toFixed(0) + "%.";
   } else {
@@ -330,21 +302,61 @@ function render(){
   }
 }
 
+function setCurrency(code){
+  var sel = document.getElementById("currency");
+  if (!code) return;
+  var found = false, i;
+  for (i = 0; i < sel.options.length; i++){ if (sel.options[i].value === code) found = true; }
+  if (!found){
+    var o = document.createElement("option");
+    o.value = code; o.textContent = code;
+    sel.appendChild(o);
+  }
+  sel.value = code;
+}
+
+function lookupPlace(lat, lng){
+  document.getElementById("placename").textContent = "Looking up location...";
+  document.getElementById("placetag").textContent = "";
+  fetch("https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=" + lat + "&longitude=" + lng + "&localityLanguage=en")
+    .then(function(res){ return res.json(); })
+    .then(function(d){
+      var city = d.city || d.locality || d.principalSubdivision || "";
+      var country = d.countryName || "Open water";
+      site.name = city ? (city + ", " + country) : country;
+      var code = CURRENCY_BY_COUNTRY[d.countryCode];
+      site.currency = code || "USD";
+      document.getElementById("placename").textContent = site.name;
+      document.getElementById("placetag").textContent = code ? site.currency : "USD, no local currency found";
+      setCurrency(site.currency);
+      render();
+      drawTable();
+    })
+    .catch(function(){
+      site.name = lat.toFixed(2) + ", " + lng.toFixed(2);
+      document.getElementById("placename").textContent = site.name;
+      document.getElementById("placetag").textContent = "location lookup unavailable";
+    });
+}
+
+function setMarker(lat, lng){
+  site.lat = lat; site.lng = lng;
+  if (marker) marker.setLatLng([lat, lng]);
+  else marker = L.marker([lat, lng]).addTo(map);
+  document.getElementById("coords").textContent =
+    "Coordinates " + lat.toFixed(4) + ", " + lng.toFixed(4) + " - click the map to move the site.";
+  lookupPlace(lat, lng);
+}
+
 function applyPreset(name){
   var p = PRESETS[name];
   activePreset = name;
   IDS.forEach(function(id){ if (p[id] !== undefined) document.getElementById(id).value = p[id]; });
-  if (map){ map.setView([p.lat, p.lng], 11); setMarker(p.lat, p.lng); }
+  if (map) { map.setView([p.lat, p.lng], 11); setMarker(p.lat, p.lng); }
   document.querySelectorAll("#presets button").forEach(function(b){
     b.className = (b.textContent === name) ? "on" : "";
   });
   render();
-}
-
-function setMarker(lat, lng){
-  if (marker) marker.setLatLng([lat, lng]);
-  else marker = L.marker([lat, lng]).addTo(map);
-  document.getElementById("coords").textContent = "Site: " + lat.toFixed(4) + ", " + lng.toFixed(4) + " — click the map to move the pin";
 }
 
 function scenarios(){
@@ -358,9 +370,11 @@ function drawTable(){
     t.innerHTML = "<tr><td style='color:var(--muted);border:none;padding:4px 0'>No scenarios yet. Set your assumptions and save one to compare later.</td></tr>";
     return;
   }
-  var html = "<tr><th>Scenario</th><th>Rooms</th><th style='text-align:right'>Investment</th><th style='text-align:right'>Profit / yr</th><th style='text-align:right'>Payback</th><th></th></tr>";
+  var html = "<tr><th>Scenario</th><th>Site</th><th>Rooms</th><th style='text-align:right'>Investment</th><th style='text-align:right'>Profit / yr</th><th style='text-align:right'>Payback</th><th></th></tr>";
   list.forEach(function(s, i){
-    html += "<tr><td>" + s.name + "</td><td>" + s.rooms + "</td>" +
+    html += "<tr><td>" + s.name + "</td>" +
+      "<td style='color:var(--muted)'>" + (s.place || "-") + "</td>" +
+      "<td>" + s.rooms + "</td>" +
       "<td class='num'>" + money(s.capex, cur) + "</td>" +
       "<td class='num " + (s.profit>=0?"good":"bad") + "'>" + money(s.profit, cur) + "</td>" +
       "<td class='num'>" + (s.payback ? s.payback.toFixed(1) + " yrs" : "never") + "</td>" +
@@ -391,16 +405,15 @@ document.addEventListener("DOMContentLoaded", function(){
 
   map = L.map("map").setView([41.311, 69.240], 11);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
-    attribution:"© OpenStreetMap", maxZoom:18
+    attribution:"OpenStreetMap contributors", maxZoom:18
   }).addTo(map);
-  setMarker(41.311, 69.240);
   map.on("click", function(e){ setMarker(e.latlng.lat, e.latlng.lng); });
 
   document.getElementById("save").onclick = function(){
-    var name = document.getElementById("scname").value.trim() || (activePreset + " — " + val("rooms") + " rooms");
+    var name = document.getElementById("scname").value.trim() || (val("rooms") + " rooms");
     var r = compute();
     var list = scenarios();
-    list.push({name:name, rooms:val("rooms"), capex:r.capex, profit:r.profit, payback:r.payback});
+    list.push({name:name, place:site.name, rooms:val("rooms"), capex:r.capex, profit:r.profit, payback:r.payback});
     localStorage.setItem("hfs_scenarios", JSON.stringify(list));
     document.getElementById("scname").value = "";
     drawTable();
@@ -414,11 +427,11 @@ document.addEventListener("DOMContentLoaded", function(){
     .then(function(d){
       rates = d.rates;
       document.getElementById("fx").textContent =
-        "Live rates loaded — $1 = " + Math.round(rates.UZS).toLocaleString("en-US") + " UZS (" + d.time_last_update_utc.slice(5,16) + ")";
+        "Live rates loaded - $1 = " + Math.round(rates.UZS).toLocaleString("en-US") + " UZS";
       render(); drawTable();
     })
     .catch(function(){
-      document.getElementById("fx").textContent = "Live rates unavailable right now — showing US dollars.";
+      document.getElementById("fx").textContent = "Live rates unavailable right now - showing US dollars.";
     });
 });
 </script>
