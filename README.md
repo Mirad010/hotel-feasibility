@@ -1,23 +1,28 @@
-# Final Project Proposal: Hotel Feasibility Studio
+# Hotel Feasibility Studio
 
-## What I want to build
+## What does this project do?
 
-A web app that helps you decide if building a hotel makes financial sense. You enter the basic numbers (how many rooms, construction cost per square meter, room price per night, expected occupancy) and the app instantly calculates the total investment, monthly revenue and profit, break-even occupancy, and how many years it takes to pay back.
+Hotel Feasibility Studio helps you figure out whether building a hotel at a specific location would actually make financial sense.
 
-## Why this project
+Click anywhere on the map, and the app pulls two real data sources: that country's GDP per capita from the World Bank (to scale realistic construction costs and room rates to that economy), and OpenStreetMap data on hotels, attractions, and restaurants within 3 km of the pin (to estimate occupancy). From there it calculates total investment, profit per year, payback period, RevPAR, break-even occupancy, and a 15-year cash flow projection — all in real time as you adjust any assumption.
 
-My family owns property in Tashkent and we often discuss building a hotel on it, but nobody ever sits down and does the real math. I want a tool where you can just move sliders and see the answer right away. I am also using concepts from my accounting course (break-even analysis) and finance course (payback period), so this project connects what I study with something I would actually use.
+## How do I use it?
 
-## Main features
+Live site: **https://mirad010.github.io/hotel-feasibility/**
 
-- Sliders and inputs for all key numbers, everything recalculates live
-- Chart showing revenue vs costs and the payback timeline (Chart.js)
-- Map where you can drop a pin on your location (Leaflet + OpenStreetMap)
-- Live currency conversion through an exchange rate API, so you can switch between USD and local currency
-- City presets (Tashkent, Dubai, Istanbul) that fill in realistic starting numbers
-- Save and compare scenarios using localStorage, for example a 40 room hotel in Tashkent vs a smaller one in Dubai
+1. Click anywhere on the map, or pick one of the city presets, to choose a site
+2. The sliders on the right fill in with realistic starting numbers for that location
+3. Adjust any slider (rooms, cost, rate, occupancy, fixed costs) — everything recalculates instantly
+4. Check the break-even bar and the 15-year chart to see if the site works financially
+5. Switch currencies with the dropdown, and save a scenario to compare it against another site
 
-## Tech
+## What I learned building this
 
-HTML, CSS, JavaScript. Chart.js for charts, Leaflet for the map, a free exchange rate API for currency. Deployed on GitHub Pages.
+- How to combine multiple free public APIs (World Bank, OpenStreetMap's Overpass API, a reverse geocoding service, and a live exchange rate API) into one tool without needing a backend
+- How to translate financial concepts from my accounting and finance classes (break-even analysis, payback period, NPV) into working JavaScript formulas
+- How to handle unreliable third-party APIs gracefully — the Overpass API is sometimes slow, so the app falls back to multiple mirror servers and degrades gracefully instead of breaking
+- How to use localStorage to persist data across sessions without a database
 
+## Status
+
+Deployed and working at the live URL above.
